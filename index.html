@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gym Logger - Track Workouts & Volume</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Pin Chart.js to a known-good version -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3" defer></script>
+  <!-- Defer our app so DOM + Chart.js are ready -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Gym Logging App</h1>
+
+    <form id="workout-form">
+      <input type="date" id="date" required>
+      <input type="text" id="exercise" placeholder="Exercise" required>
+      <input type="number" id="sets" placeholder="Sets" min="1" required>
+      <input type="number" id="reps" placeholder="Reps" min="1" required>
+      <input type="number" id="weight" placeholder="Weight (lbs)" min="0" step="0.5" required>
+      <button type="submit" id="add-btn">Add Workout</button>
+    </form>
+
+    <button id="clear-btn">Clear All Workouts</button>
+
+    <h2 id="total-volume">Total Volume Lifted: 0 lbs</h2>
+
+    <!-- Give the chart a fixed-height wrapper to avoid layout thrash -->
+    <div class="chart-wrap">
+      <canvas id="volumeChart"></canvas>
+    </div>
+
+    <div id="log"></div>
+  </div>
+</body>
+</html>
